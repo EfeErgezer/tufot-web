@@ -1,0 +1,197 @@
+/* ==========================================================================
+   TÜFOT - Trakya Üniversitesi Fotoğrafçılık Topluluğu
+   Arayüz Stilleri: Çerçevesiz, Keskin Köşeli Butonlar, Kırık Gri İkonlar
+   ========================================================================== */
+
+:root {
+  --navy-primary: #000080;
+  --navy-hover: #000066;
+  --navy-active: #00004d;
+  
+  /* Kırık Gri Zemin ve İkon Rengi */
+  --bg-page: #e9ecef;
+  --icon-broken-grey: #e9ecef;
+  
+  /* Tipografi */
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-page);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 56px 20px 48px;
+}
+
+/* ==========================================================================
+   İçerik Kapsayıcısı (Çerçevesiz, Doğrudan Kırık Gri Zemin Üzerinde)
+   ========================================================================== */
+
+.content-wrapper {
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   Amblem (Üstte Konumlandırılmış)
+   ========================================================================== */
+
+.emblem-container {
+  width: 135px;
+  height: 135px;
+  margin-bottom: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.emblem-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* ==========================================================================
+   Başlıklar (Metin ile Tuşların Arası Açıldı)
+   ========================================================================== */
+
+.header-section {
+  margin-bottom: 48px; /* Metin ve tuşların arası açıldı */
+  width: 100%;
+}
+
+.institution-text {
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+
+.community-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1.25;
+  color: var(--navy-primary);
+  letter-spacing: -0.025em;
+}
+
+/* ==========================================================================
+   Butonlar: Köşeleri Yuvarlatılmamış, #000080 Renkli, Kırık Gri İkonlu
+   ========================================================================== */
+
+.links-nav {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.nav-btn {
+  width: 100%;
+  height: 56px;
+  background-color: var(--navy-primary);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 0; /* Köşeleri yuvarlatma yok, tamamen düz */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0 20px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.15s ease;
+}
+
+/* Buton İçi Kırık Gri İkon (Sol Tarafta Konumlandırılmış) */
+.btn-icon {
+  position: absolute;
+  left: 20px;
+  width: 22px;
+  height: 22px;
+  color: var(--icon-broken-grey);
+  fill: currentColor;
+  flex-shrink: 0;
+}
+
+.btn-text {
+  display: inline-block;
+}
+
+.nav-btn:hover {
+  background-color: var(--navy-hover);
+}
+
+.nav-btn:active {
+  background-color: var(--navy-active);
+  transform: scale(0.99);
+}
+
+/* ==========================================================================
+   Mobil Uyum (Responsive)
+   ========================================================================== */
+
+@media (max-width: 380px) {
+  body {
+    padding: 40px 16px 36px;
+  }
+
+  .emblem-container {
+    width: 115px;
+    height: 115px;
+    margin-bottom: 18px;
+  }
+
+  .header-section {
+    margin-bottom: 38px;
+  }
+
+  .community-title {
+    font-size: 1.45rem;
+  }
+
+  .institution-text {
+    font-size: 0.78rem;
+  }
+
+  .nav-btn {
+    height: 52px;
+    font-size: 0.96rem;
+  }
+
+  .btn-icon {
+    left: 16px;
+    width: 20px;
+    height: 20px;
+  }
+}
